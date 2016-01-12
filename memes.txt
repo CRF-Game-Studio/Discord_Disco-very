@@ -1,0 +1,18 @@
+^you dont say\?*$			http://i.imgur.com/IEtjOY4.png
+^y u no						http://i.imgur.com/IEtjOY4.png
+^bitch (please)|(plz)		http://i.imgur.com/IEtjOY4.png
+(trol(ol)*)|(problem\??)	http://i.imgur.com/0RZD7bz.jpg
+(poker\ (face))				http://i.imgur.com/ZIuiy9X.png
+(wow)|(crazy)|(so crazy)	http://i.imgur.com/qdswLqC.png
+(startcraft)|(星海爭霸)		http://i.imgur.com/D9MzVG3.jpg
+(world of warcraft)|(魔獸世界)		http://i.imgur.com/0KH2Ijl.jpg
+(watch out)|(badass (over here)?)	http://i.imgur.com/Q31yvRd.jpg
+(doge)|(much [a-zA-Z]+)|(such [a-zA-Z]+)|(very [a-zA-Z]+)|(so [a-zA-Z]+)$	http://i.imgur.com/5aPK3YR.jpg
+87	小北七
+886	掰掰啦～
+98	走吧
+520	愛你喔～揪咪 <3
+689	國民黨不倒，臺灣不會好
+懶趴	【十萬懶趴十萬震，牽手同心護懶趴！】https://youtu.be/cmtf09xRkfk
+阿嬤	阿嬤說你不出來選 天公伯不會原諒你
+兩黨都一樣	都一樣你媽，民進黨根本就沒有完全執政過
