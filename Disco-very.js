@@ -25,15 +25,6 @@ bot.on('message', function (user, userID, channelID, message, rawEvent) {
 	if (white_channel[channelID] == undefined) return;
 	
 	mStart = message[0]; mEnd = message[message.length - 1];
-
-	// Admin Command
-    // if (mStart == '^' && user == USERNAME) {
-        // var command = message.slice(1, (message.indexOf(' ') != -1) ? message.indexOf(' '):message.length);
-        // var parm = (message.indexOf(' ') != -1) ? message.slice(message.indexOf(' ') + 1, message.length) : "";
-        // console.log("From:" + user + ", Com: " + command);
-		// if (parm != "") console.log("Param: " + parm);
-        // commands(command.toLowerCase(), parm, userID, channelID);
-    // } 
 	// Memes Caller
 	if((mStart == '[' || mStart == ']') && (mEnd == '[' || mEnd == ']')) {
         var meme = message.slice(1,message.length-1);
