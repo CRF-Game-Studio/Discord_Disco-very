@@ -10,7 +10,7 @@ exports.MessageInterpreter = function(user, userID, channelID, message, rawEvent
 		msgEnd = message.substr(message.length - 2, 1);
 	// console.log(msgBegin + " " + msgEnd);
 	if (this.username != user && DiscordCommand[msgBegin] != undefined) {
-		say.call(this, channelID, DiscordCommand[msgBegin](user, userID, channelID, message, rawEvent));
+		say.call(this, channelID, DiscordCommand[msgBegin]([user, userID, channelID, message, rawEvent]));
 	} else if (msgBegin == "^") {
 		var split_m = message.substr(1, message.length - 1);
 		split_m = split_m.split(" ");
