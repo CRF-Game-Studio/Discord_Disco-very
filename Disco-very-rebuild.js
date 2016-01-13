@@ -8,9 +8,7 @@
 // Load Module
 //==================================
 
-var fs = require('fs');
 var DiscordClient = require('discord.io');
-var Cleverbot = require('cleverbot.io');
 var DiscordCore = require("./Discord_Core.js");
 
 //==================================

@@ -1,7 +1,7 @@
 //==================================
 // Discord_Event
 //==================================
-var fs = require('fs');
+
 exports.LoadClientInfo = function() {
 	var prop = {
 		autorun: true,
@@ -9,6 +9,7 @@ exports.LoadClientInfo = function() {
 		password: true,
 		username: true,
 	}, client = {};
+	var fs = require('fs');
 	var data = fs.readFileSync("setting.ini", "utf8");
 	
 	data = data.split('\r\n');
@@ -35,3 +36,7 @@ exports.Ready = function() {
 exports.Message = function (user, userID, channelID, message, rawEvent) {
 	console.log("[%s]%s: %s", channelID, user, message);
 }
+
+//==================================
+// End of File
+//==================================
