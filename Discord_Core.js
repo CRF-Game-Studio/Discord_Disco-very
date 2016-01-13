@@ -47,14 +47,13 @@ var LoadWhiteChannel = function() {
 }
 
 exports.Message = function (user, userID, channelID, message, rawEvent) {
-	console.log("[%s]%s: %s", channelID, user, message);
 	try {
 		if (_whiteChannel[channelID] == undefined)
 			throw("Error: Not in white channel.");
 	} catch (err) {
-		console.log(err);
 		return;
 	}
+	console.log("[%s]%s: %s", channelID, user, message);
 	MsgInterpreter.MessageInterpreter.call(this, user, userID, channelID, message, rawEvent);
 }
 
