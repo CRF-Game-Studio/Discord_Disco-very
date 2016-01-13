@@ -9,7 +9,7 @@
 //==================================
 
 var DiscordClient = require('discord.io');
-var DiscordCore = require("./Discord_Core.js");
+var DiscordCore = require("./Discord_Core");
 
 //==================================
 // Global_Variable
