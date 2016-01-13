@@ -56,7 +56,7 @@ bot.on('message', function (user, userID, channelID, message, rawEvent) {
 });
 
 //==================================
-// CatchDargon
+// Game_CatchDargon
 //==================================
 function initCatchDragon() {
 	for (i = 0; i < myStr.length; i++)
@@ -82,6 +82,8 @@ function textCatchDragon(ch, msg) {
 		// cdNow = -1;
 	}
 }
+
+
 
 function say(ch, ms) {
     bot.sendMessage({
@@ -137,6 +139,16 @@ function playGame(user, game, ch, userID) {
 		}
 	}
 	if (msg != undefined) say(ch, msg);
+}
+
+//==================================
+// Game_GuessPunch
+//==================================
+
+function Game_GuessPunch(time, channelID) {
+	this.channelID = {};
+	this.guessLeft = time;
+	
 }
 
 function putMemes() {
