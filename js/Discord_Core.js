@@ -24,7 +24,7 @@ exports.LoadClientInfo = function() {
 			try {
 				str[1] = !!eval(str[1]);
 			} catch (err) {
-				console.log("Load " + str[0]);
+//				console.log("Load " + str[0]);
 			};
 			if (prop[str[0]])
 				client[str[0]] = str[1];
