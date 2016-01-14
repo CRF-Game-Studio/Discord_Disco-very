@@ -2,10 +2,9 @@
 // Discord_PluginCommand
 //==================================
 
-var _Game = {
-	"測智商": IQ_Test
-};
-var UserGame = {};
+var Game_Bla = require("./Plugin/Game_Bla");
+var gameBla = new Game_Bla();
+
 module.exports = function() {
 	return {
 		"!": exports.Game,
@@ -24,11 +23,8 @@ exports.Game = function(param) {
 	// return _Game[gameType](param);
 	
 	if (gameType == "bla") {
-		if (UserGame[param[1]] == undefined)
-			UserGame[param[1]] = new bla(param[0]);
-		var tmp = UserGame[param[1]].play();
-		console.log(tmp);
-		return tmp;
+		console.log(gameBla);
+		return gameBla.onCall(param);
 	}
 	return "Game!";
 }
@@ -45,17 +41,3 @@ exports.Admin = function(cmd, param) {
 	console.log("Command: Admin");
 }
 
-function IQ_Test(param) {
-	this.time = {};
-	return param[0] + "的智商是" + param[1] % 180 + "！"
-}
-
-function bla(name) {
-	this.time = 0;
-	this.name = name;
-}
-
-bla.prototype.play = function() {
-	this.time++;
-	return this.name + " bla " + this.time + " times.";
-}

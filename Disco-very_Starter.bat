@@ -1,3 +1,3 @@
 @echo off
-node Disco-very-rebuild
+node Disco-very
 pause
