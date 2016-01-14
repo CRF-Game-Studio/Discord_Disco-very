@@ -3,7 +3,9 @@
 //==================================
 
 var Game_Bla = require("./Plugin/Game_Bla");
+var Game_Adventure = require("./Plugin/Game_Adventure");
 var gameBla = new Game_Bla();
+var gameAdventure = new Game_Adventure();
 
 module.exports = function() {
 	return {
@@ -23,8 +25,9 @@ exports.Game = function(param) {
 	// return _Game[gameType](param);
 	
 	if (gameType == "bla") {
-		console.log(gameBla);
 		return gameBla.onCall(param);
+	} else if (gameType.indexOf("冒險") == 0) {
+		return gameAdventure.onCall(param);
 	}
 	return "Game!";
 }
