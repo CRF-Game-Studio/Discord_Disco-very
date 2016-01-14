@@ -16,7 +16,7 @@ exports.LoadClientInfo = function() {
 	}, client = {};
 	var data = fs.readFileSync("setting.ini", "utf8");
 	
-	data = data.split('\r\n');
+	data = data.split('\n');
 	for (var i in data) {
 		var str = data[i].split(':');
 		if (str[1] != undefined) {
@@ -28,6 +28,7 @@ exports.LoadClientInfo = function() {
 			};
 			if (prop[str[0]])
 				client[str[0]] = str[1];
+//			else if (str[0] == )
 		}
 	}
 	return client;
@@ -46,15 +47,15 @@ var LoadWhiteChannel = function() {
 	}
 }
 
-exports.Message = function (user, userID, channelID, message, rawEvent) {
+exports.Message = function (user, uID, ch, msg, raw) {
 	try {
-		if (_whiteChannel[channelID] == undefined)
+		if (_whiteChannel[ch] == undefined)
 			throw("Error: Not in white channel.");
 	} catch (err) {
 		return;
 	}
-	console.log("[%s]%s: %s", channelID, user, message);
-	MsgInterpreter.MessageInterpreter.call(this, user, userID, channelID, message, rawEvent);
+//	console.log("[%s]%s: %s", channelID, user, message);
+	MsgInterpreter.MessageInterpreter.call(this, user, uID, ch, msg, raw);
 }
 
 //==================================

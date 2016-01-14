@@ -11,9 +11,9 @@ Game_Adventure.prototype.onCall = function(param) {
 		msg += "小依踏上了冒險的旅程！\n";
 	}
 	
-	var dir = param[3].substr(4, 1);
+	var dir = param[3].substr(param[3].indexOf(" ") + 1, 1);
 
-	if (dir != "" && dir) {
+	if (dir != "" && this.getStep(dir) != undefined) {
 		var step = this.getStep(dir);
 		var x = this._userList[ch]._mPosition[0] += step[0];
 		var y = this._userList[ch]._mPosition[1] += step[1];
@@ -21,7 +21,7 @@ Game_Adventure.prototype.onCall = function(param) {
 			this.gameOver(ch);
 			msg += "小依遇到Steam冬季大特賣，窮死了！\n" + "戰犯：" + param[0];
 		} else {
-			if (!atNew) msg += "小依向" + dir + "走，感受到大草原上美好的氣味\n";
+			if (!atNew) msg += "小依向" + this.getStepWord(dir) + "走，感受到大草原上美好的氣味\n";
 			for (i = 0; i < 4; i++)
 				if (this._userList[ch]._map[x + step[0]][y + step[1]] == 1)
 					break;
@@ -57,8 +57,7 @@ Game_Adventure.prototype.getStep = function(msg) {
 }
 
 Game_Adventure.prototype.getStepWord = function(step) {
-	var _step = "EWSN";
-	var _stepWord = "東西南北";
+	var _step = "EWSN", _stepWord = "東西南北";
 	return _stepWord[_step.indexOf(step)];
 }
 
