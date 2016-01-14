@@ -49,7 +49,7 @@ Game_Adventure.prototype.newMap = function(ch) {
 Game_Adventure.prototype.detectDamage = function(ch) {
 	var pos = this.getXY(ch);
 	for (i = 0; i < 4; i++)
-		if (this._userList[ch]._map[x + step[0]][y + step[1]] == 1)
+		if (this._userList[ch]._map[pos[0] + step[0]][pos[1] + step[1]] == 1)
 			break;
 	if (i != 4) msg += "小依聽到了淒厲的哀號聲跟鈔票聲，心中有一絲不祥的預感...";
 }
