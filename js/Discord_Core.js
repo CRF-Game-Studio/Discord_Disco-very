@@ -21,16 +21,17 @@ exports.LoadClientInfo = function() {
 		var str = data[i].split(':');
 		if (str[1] != undefined) {
 			str[1] = str[1].trim();
-			try {
-				str[1] = !!eval(str[1]);
-			} catch (err) {
-//				console.log("Load " + str[0]);
-			};
+			if (str[1].toLowerCase() == "true")
+				str[1] = true;
+			if (str[1].toLowerCase() == "false")
+				str[1] = false;
+			
 			if (prop[str[0]])
 				client[str[0]] = str[1];
 //			else if (str[0] == )
 		}
 	}
+	console.log(client);
 	return client;
 }
 
