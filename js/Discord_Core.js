@@ -14,7 +14,7 @@ exports.LoadClientInfo = function() {
 		password: true,
 		white_channel: true,
 	}, client = {};
-	var data = fs.readFileSync("setting.cfg", "utf8");
+	var data = fs.readFileSync("./setting/setting.cfg", "utf8");
 	
 	data = data.split('\n');
 	for (var i in data) {
@@ -30,7 +30,6 @@ exports.LoadClientInfo = function() {
 				client[str[0]] = str[1];
 		}
 	}
-	console.log(client);
 	return client;
 }
 
@@ -40,7 +39,7 @@ exports.Ready = function() {
 }
 
 var LoadWhiteChannel = function() {
-	var data = fs.readFileSync("white_channel.cfg", "utf8");
+	var data = fs.readFileSync("./setting/white_channel.cfg", "utf8");
 	data = data.split('\r\n');
 	for (var i in data) {
 		_whiteChannel[data[i]] = true;
@@ -48,6 +47,7 @@ var LoadWhiteChannel = function() {
 }
 
 exports.Message = function (user, uID, ch, msg, raw) {
+	console.log(ch, user);
 	try {
 		if (_whiteChannel[ch] == undefined)
 			throw("Error: Not in white channel.");
