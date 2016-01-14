@@ -1,11 +1,29 @@
 //==================================
-// Discord_Event
+// Discord_Core
 //==================================
 
 var fs = require('fs');
 var MsgInterpreter = require('./Discord_MsgInterpreter');
 
 var _whiteChannel = {};
+
+exports.Ready = function() {
+	LoadWhiteChannel();
+	console.log(this.username + " Login Successed.");
+}
+
+exports.Message = function (user, uID, ch, msg, raw) {
+//	console.log(ch, user);
+	try {
+		if (_whiteChannel[ch] == undefined)
+			throw("Error: Not in white channel.");
+	} catch (err) {
+		console.log(err);
+		return;
+	}
+//	console.log("[%s]%s: %s", channelID, user, message);
+	MsgInterpreter.MessageInterpreter.call(this, user, uID, ch, msg, raw);
+}
 
 exports.LoadClientInfo = function() {
 	var prop = {
@@ -14,7 +32,7 @@ exports.LoadClientInfo = function() {
 		password: true,
 		white_channel: true,
 	}, client = {};
-	var data = fs.readFileSync("./setting/setting.cfg", "utf8");
+	var data = fs.readFileSync("./setting.ini", "utf8");
 	
 	data = data.split('\n');
 	for (var i in data) {
@@ -33,31 +51,16 @@ exports.LoadClientInfo = function() {
 	return client;
 }
 
-exports.Ready = function() {
-	LoadWhiteChannel();
-	console.log(this.username + " Login Successed.");
-}
-
 var LoadWhiteChannel = function() {
-	var data = fs.readFileSync("./setting/white_channel.cfg", "utf8");
+	var data = fs.readFileSync("./white_channel.ini", "utf8");
 	data = data.split('\r\n');
 	for (var i in data) {
 		_whiteChannel[data[i]] = true;
 	}
 }
 
-exports.Message = function (user, uID, ch, msg, raw) {
-	console.log(ch, user);
-	try {
-		if (_whiteChannel[ch] == undefined)
-			throw("Error: Not in white channel.");
-	} catch (err) {
-		return;
-	}
-//	console.log("[%s]%s: %s", channelID, user, message);
-	MsgInterpreter.MessageInterpreter.call(this, user, uID, ch, msg, raw);
-}
+
 
 //==================================
-// End of File
+// End of Core
 //==================================

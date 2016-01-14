@@ -15,14 +15,14 @@ var DiscordCore = require("./js/Discord_Core");
 // Global_Variable
 //==================================
 
-var bot = new DiscordClient(DiscordCore.LoadClientInfo());
+var Disco_very = new DiscordClient(DiscordCore.LoadClientInfo());
 
 //==================================
 // Discord_Event
 //==================================
 
-bot.on('ready', DiscordCore.Ready);
-bot.on('message', DiscordCore.Message);
+Disco_very.on('ready', DiscordCore.Ready);
+Disco_very.on('message', DiscordCore.Message);
 
 //==================================
 // End of File
